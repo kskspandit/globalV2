@@ -1,0 +1,424 @@
+@import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+// Background Color
+$whiteBg: #fff;
+$greenBg: #006a4d;
+$grayBg: #3c3c3c;
+
+
+// Colors
+$black: #000;
+$white: #fff;
+$lightGreen: #69be28;
+$green: #006a4d; 
+
+// Font
+$openSans : 'Open Sans', sans-serif;
+
+//Font Size 
+$size14: 14px;
+$size16: 16px;
+$size18: 18px;
+$size20: 20px;
+$size22: 22px;
+$size32: 32px;
+$size36: 36px;
+$size58: 58px;
+
+// transform
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	  -o-transform: $transforms;
+	 -ms-transform: $transforms;
+ -webkit-transform: $transforms;
+	   transform: $transforms;
+}
+@mixin transition($transforms) {
+	-moz-transition: $transforms;
+	  -o-transition: $transforms;
+	 -ms-transition: $transforms;
+ -webkit-transition: $transforms;
+ transition: $transforms;
+}
+
+// translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+ }
+
+ //Border Radius 
+
+ @mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
+//Text Shadow
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+    text-shadow: $x $y $blur $color;
+}
+
+body{
+	background: $whiteBg ;
+	font-family: $openSans;
+	font-size: 16px;
+	line-height: 20px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding-top: 80px;
+}
+img{ max-width:100%; }
+.header{ 
+	width: 100%; 
+	position: fixed; 
+	left: 0;
+	top: 0; 
+	background: $whiteBg;	
+	z-index: 9;
+	.logo{
+		padding: 24px 0 19px;
+	}
+	nav{
+		padding: 41px 0 0 51px;
+		float: left;
+		display: block;
+		@media  (max-width: $screen-sm-max) {
+			display:none;
+			position: absolute;
+			top:79px;
+			background: #000; 
+			width:100%;
+			padding:15px;
+			left: 0;
+		}
+		ul{
+			float: left;
+			padding: 0;
+			list-style: none;
+			margin:0;
+			@media  (max-width: $screen-sm-max) {
+					width:100%;
+									
+			}
+			li{ 
+				float: left;
+				margin: 0 3px;
+				@media  (max-width: $screen-sm-max) {
+					width:100%;
+					margin:0;				
+				}
+				
+				a{
+					font-size: $size18; 
+					color: $green;
+					font-weight: 700;
+					padding: 13px 15px;
+					border-bottom: solid 4px $white;
+					text-transform: uppercase;
+					transition: all 0.3s ease-out; 
+					-webkit-transition: all 0.3s ease-out;
+					float:left;
+					@media  (max-width: $screen-sm-max) {
+						width:100%;
+						color:$white;	
+						border-bottom: solid 1px $white;			
+					}
+					&:hover{
+						color: $lightGreen;						
+						text-decoration: none; 
+						border-color:  $lightGreen;	
+
+					}					
+				}
+				.active{
+					color: $lightGreen;						
+					text-decoration: none; 
+					border-color:  $lightGreen;		
+					}
+			}
+		}
+	}
+	.button{
+		background: $lightGreen;
+		color: $white;
+		text-transform: uppercase;
+		padding: 10px 15px;
+		line-height: 28px;
+		font-size: $size18;
+		font-weight: 600;
+		margin-top: 43px;
+		transition: all 0.3s ease-out; 
+		-webkit-transition: all 0.3s ease-out;
+		@media  (max-width: $screen-sm-max) {
+			margin-top:12px;
+			margin-right:15px;				
+		}
+		&:hover{
+			background: $green;
+			text-decoration: none;
+		}
+	}
+ }
+.hero-cont{
+	width: 100%;
+	float: left;
+	img{
+		@media (max-width: $screen-xs-max) {
+		 width:100%;
+		}
+	}
+	.hero-container{
+		position: relative;
+		max-width: 1385px;
+		margin: 0 auto;
+		.text{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			color: $white;			
+			text-align: center;	
+			@include translate(-50%, -50%);	
+			@media (max-width: $screen-xs-max) {	
+				width:80%;
+			}	
+			h4{
+				font-size: $size32;
+				font-weight: 700;
+				margin: 0;
+				@include text-shadow(2px, 2px,  5px, $black);
+				@media  (max-width: $screen-sm-max) {
+					font-size: $size22;													
+				}
+			}
+			h2{
+				font-size: $size58;
+				font-weight: 700;
+				padding: 0 0 8px 0;
+				margin: 20px 0 0 0;
+				border-bottom: solid 1px $white;
+				@include text-shadow(2px, 2px,  5px, $black);
+				@media  (max-width: $screen-sm-max) {
+					font-size: $size32;													
+				}
+			}
+			h5{
+				font-size: $size22;
+				margin: 23px 0 8px 0;
+				font-weight: 700;
+				@include text-shadow(2px, 2px,  5px, $black);
+				@media  (max-width: $screen-sm-max) {
+					font-size: $size18;													
+				}
+			}
+		}
+	}
+}
+.about-cont{
+	padding:116px 0;
+	width: 100%;
+	@media  (max-width: $screen-sm-max) {
+		padding:40px 0;												
+	}
+	.about-text{ 
+		padding-right: 40px;
+		color: $black;
+		@media (max-width: $screen-xs-max) {	
+			padding-right: 0px;
+		}
+
+		h1{ 
+			font-size: $size36;
+			color: $green;
+			text-transform: uppercase;
+			font-weight: 700;
+			padding-bottom: 8px;
+			@media (max-width: $screen-xs-max) {	
+				font-size: $size22;
+			}
+		}
+		h3{
+			font-size: $size20;
+			color: $green;
+			text-transform: uppercase;
+			font-weight: 700;
+			padding-top: 12px;
+			@media (max-width: $screen-xs-max) {	
+				font-size: $size18;
+			}	
+		}
+	
+	}
+	.about-img{
+		padding-top: 75px;
+		@media  (max-width: $screen-sm-max) {
+			padding:25px 0 15px 0;	
+			text-align:center;											
+		}
+	}
+}
+
+.spaeakers-cont{
+	background: $green;
+	width: 100%;
+	padding: 98px 0;
+	color: $white;
+	text-align: center;	
+	@media (max-width: $screen-xs-max) {	
+		padding: 30px 0;
+	}
+	h2{ 
+		font-size: $size36;
+		text-transform: uppercase;
+		font-weight: 700;
+		@media (max-width: $screen-xs-max) {	
+			font-size: 25px;
+		}
+	}
+	p{
+		font-size: $size16;
+		font-weight: 600;
+		padding-top: 15px;
+		@media (max-width: $screen-xs-max) {	
+			font-size: $size14;
+			padding: 15px 20px;
+		}
+	}
+	ul{
+		list-style: none;
+		padding: 25px 100px 65px 100px;
+		float: left; 
+		@media (max-width: $screen-xs-max) {	
+				padding: 20px 20px 25px 20px;
+			}
+		li{
+			float: left;
+			padding: 0 35px;
+			width:25%;
+			@media (max-width: $screen-sm-max) {	
+				width:50%;
+				padding: 15px;
+			}
+			@media (max-width: $screen-xs-max) {	
+				width:100%;
+				padding: 15px;
+			}
+			h5{
+				font-size: $size18;
+				font-weight: 700;
+				margin-bottom: 0;
+			}
+			p{
+				font-size: $size14;
+				margin: 0;
+				padding: 3px 0 0 0
+			}
+		}
+	}
+	.button{ 
+		text-align: center;
+		float: left; 
+		width: 100%;
+		a{ 
+			display: inline-block;
+			border: solid 2px #fff;
+			line-height: 42px;
+			padding: 0 20px;
+			color: $white;
+			font-size: $size18;
+			transition: all 0.3s ease-out; 
+			-webkit-transition: all 0.3s ease-out;
+			&:hover{
+				text-decoration: none;
+				background: $lightGreen;
+			}
+		}
+	}
+}
+.footer-cont {
+	width: 100%;
+	background: $grayBg;
+	padding: 74px 0;
+	color: $white;
+	font-size: $size16;
+	font-weight: 600;
+	@media (max-width: $screen-sm-max) {	
+		padding: 20px 0;
+		text-align:center;
+	}
+	.follow-box { 
+		float:right;
+		@media (max-width: $screen-sm-max) {	
+			float:none;	
+		}
+	}
+	p{
+		padding-top: 40px;
+		@media (max-width: $screen-sm-max) {	
+			padding: 15px 0;	
+		}
+	}
+	label{
+		font-size: $size18;
+	}
+	ul{
+		list-style: none;
+		padding: 20px 0 10px 0;
+		li{
+			display: inline-block;
+			a{
+				border: solid 1px #fff;
+				padding: 5px 10px;
+				color: #fff;
+				color: $white;
+				font-size: 20px;
+				margin: 0 2px;
+				@include border-radius(50%);
+				&:hover{ 
+					color: $lightGreen;
+					border-color: $lightGreen;
+				}	
+			}
+		}
+	}
+}
+.mobile-menu{ 
+		display:none;
+		margin-top:15px;
+		@media  (max-width: $screen-sm-max) {
+			display:block;
+		}
+	.bar {
+		    width: 35px;
+		    height: 5px;
+		    background-color: #333;
+		    margin: 6px 0;
+		    transition: 0.4s;
+		    display:block;
+		}
+	}
+
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+.mobile-menu{
+	position: relative; 
+	float:right;
+}
+
+
+.mobile{ display:none;}
+
+@media (max-width: $screen-xs-max) {	
+	.laptop{ display:none;}
+	.mobile{ display:block;}
+
+}
